@@ -1,28 +1,39 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { render } from 'react-dom'
+import React, {Component} from 'react';
+import axios from 'axios';
 
-function App() {
-  return (
+class App extends Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      data: []
+    };
+  }
+
+  componentDidMount(){
+
+    axios.get('https://randomuser.me/api/?results=50')
+    .then(response => {
+      const data = response.data.results;
+      this.setState({data})
+    })
+    .catch(error => {
+      console.log(error);
+    })
+  }
+
+render() {
+  return(
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo"/>
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-          <h1>Hola Mundo</h1>
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-<h2>Hi</h2>
-        </a>
-      </header>
+      {this.state.data.map((item, index) => <UserList key={index} {...item} />)}
+
     </div>
-    
   );
 }
+}
+const UserList = (props) => (
+  <p><strong>Name: </strong>{props.name.first}</p>
+)
+render(<App />, document.getElementById('root'));
 
 export default App;
