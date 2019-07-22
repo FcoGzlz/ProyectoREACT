@@ -1,10 +1,14 @@
 import { render } from "react-dom";
 import React, { Component } from "react";
-import { Formulario } from "./Components/formulario";
 import AñadirEquipo from "./Components/añadirEquipo";
+import EliminarEquipo from "./Components/eliminarEquipo";
 import ListaEquipos from "./Components/listaEquipos";
-import ListaPatrocinadores from "./Components/listaPatrocinadores";
 import "bootstrap/dist/css/bootstrap.min.css";
+
+const divStyle = {
+  margin: "2%"
+};
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -17,17 +21,18 @@ class App extends Component {
     return (
       <div className="App">
         <div className="container">
-          <div className="card">
-            <div className="card-header">hOlA CoLeGa</div>
+          <div className="card" style={divStyle}>
+            <div className="card-header">Crud Equipo</div>
             <div className="card-body">
-            <div className="row">
-              <div className="col">
-                
-                  <ListaEquipos />
-                  <AñadirEquipo />
-                </div>
+              <div className="row" style={divStyle}>
                 <div className="col">
-                  <ListaPatrocinadores />
+                  <AñadirEquipo />
+                  <EliminarEquipo />
+                </div>
+              </div>
+              <div className="row" style={divStyle}>
+                <div className="col">
+                  <ListaEquipos />
                 </div>
               </div>
             </div>
