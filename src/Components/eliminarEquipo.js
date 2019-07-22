@@ -39,7 +39,7 @@ export default class EliminarEquipo extends Component {
       console.log(res.data);
       alert(res.data.message);
     });
-    window.location.reload(<ListaEquipos />);
+    window.location.reload();
   };
 
   render() {
