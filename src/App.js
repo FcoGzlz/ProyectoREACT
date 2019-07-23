@@ -27,6 +27,10 @@ class App extends Component {
               <div className="row" style={divStyle}>
                 <div className="col">
                   <AñadirEquipo />
+                </div>
+              </div>
+              <div className="row" style={divStyle}>
+                <div className="col">
                   <EliminarEquipo />
                 </div>
               </div>

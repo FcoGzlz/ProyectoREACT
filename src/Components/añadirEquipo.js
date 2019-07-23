@@ -59,7 +59,7 @@ export default class AñadirEquipo extends Component {
                 onChange={this.handleChange}
               />
             </div>
-
+            <br />
             <div>
               <label htmlFor="cantidad">Ingrese la cantidad de jugadores</label>
               <input
